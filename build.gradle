@@ -73,9 +73,9 @@ shadowJar {
 
 dependencies {    
     implementation("org.apache.maven.resolver:maven-resolver-transport-apache:2.0.11")
-    implementation("javax.inject:javax.inject:1")
-    implementation("com.github.KodTik-Innovations:httpclient:4.5.14")
-    implementation("com.github.KodTik-Innovations.httpclient:httpcore:4.5.14")
+    compileOnly("javax.inject:javax.inject:1")
+    compileOnly("com.github.KodTik-Innovations:httpclient:4.5.14")
+    compileOnly("com.github.KodTik-Innovations.httpclient:httpcore:4.5.14")
 }
 
 publishing {
