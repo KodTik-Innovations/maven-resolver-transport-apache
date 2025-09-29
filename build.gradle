@@ -1,0 +1,87 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'    
+    id 'com.diffplug.spotless' version '7.0.3'
+    id 'com.gradleup.shadow' version '9.1.0'
+}
+
+repositories {
+    // Use Maven Central for resolving dependencies.
+    gradlePluginPortal()
+    google()
+    mavenCentral()
+    maven { url "https://jitpack.io" } 
+    maven { url "https://plugins.gradle.org/m2/" } 
+    maven { url "https://repo.jenkins-ci.org/public/" }
+    maven { url "https://repo.gradle.org/gradle/libs-releases" }
+    maven { url "https://releases.usethesource.io/maven/" }
+    mavenLocal()
+    maven {
+        url = uri("https://repository.apache.org/content/repositories/snapshots/")
+    }
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+tasks.assemble.dependsOn tasks.shadowJar
+tasks.build.dependsOn tasks.shadowJar
+
+spotless {
+    java {
+        target "**/*.java"		  
+        googleJavaFormat()
+    }
+}
+
+// Apply a specific Java toolchain to ease working on different environments.
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+shadowJar {        
+    archiveFileName.set("${project.rootProject.name}.jar")       
+    archiveClassifier.set("")  
+ 
+    dependencies {
+        exclude(dependency('org.codehaus.plexus:plexus-interpolation:1.28'))
+        exclude(dependency('javax.inject:javax.inject:1'))
+        exclude(dependency('org.apache.maven:maven-model:3.9.11'))
+        exclude(dependency('org.codehaus.plexus:plexus-utils:3.6.0'))
+        exclude(dependency('commons-codec:commons-codec:1.19.0'))       
+        exclude(dependency('org.slf4j:jcl-over-slf4j:2.0.17'))
+        exclude(dependency('org.apache.maven:maven-artifact:3.9.11'))
+        exclude(dependency('org.apache.maven:maven-builder-support:3.9.11'))
+        exclude(dependency('org.eclipse.sisu:org.eclipse.sisu.inject:0.9.0.M4'))
+        exclude(dependency('org.ow2.asm:asm:9.8'))        
+        exclude(dependency('org.apache.maven.resolver:maven-resolver-api:2.0.11'))
+        exclude(dependency('org.apache.maven.resolver:maven-resolver-spi:2.0.11'))
+        exclude(dependency('com.google.code.gson:gson:2.13.1'))
+        exclude(dependency('com.google.errorprone:error_prone_annotations:2.38.0'))
+        exclude(dependency('org.apache.maven.resolver:maven-resolver-util:2.0.11'))
+        exclude(dependency('org.apache.httpcomponents:httpclient:4.5.14'))
+        exclude(dependency('org.apache.httpcomponents:httpcore:4.4.16'))
+        exclude(dependency('org.slf4j:slf4j-api:2.0.17'))
+    }
+}
+
+dependencies {    
+    implementation("org.apache.maven.resolver:maven-resolver-transport-apache:2.0.11")
+    implementation("javax.inject:javax.inject:1")
+}
+
+publishing {
+    publications {
+        shadow(MavenPublication) { publication ->            
+            groupId = 'org.kodtik.ide'
+            artifactId = 'maven-resolver-transport-apache'
+            version = '2.0.11-beta' 
+         
+            from(components.shadow)
+        }
+    }
+}
