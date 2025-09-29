@@ -20,9 +20,9 @@ package org.eclipse.aether.transport.apache;
 
 import java.util.LinkedList;
 
-import org.apache.http.auth.AuthScheme;
-import org.apache.http.client.config.AuthSchemes;
-import org.apache.http.impl.auth.BasicScheme;
+import org.kodtik.ide.http.auth.AuthScheme;
+import org.kodtik.ide.http.client.config.AuthSchemes;
+import org.kodtik.ide.http.impl.auth.BasicScheme;
 
 /**
  * Pool of (equivalent) auth schemes for a single host.

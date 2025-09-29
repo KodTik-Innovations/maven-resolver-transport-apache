@@ -22,9 +22,9 @@ import java.io.Closeable;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentMap;
 
-import org.apache.http.HttpHost;
-import org.apache.http.auth.AuthScheme;
-import org.apache.http.conn.HttpClientConnectionManager;
+import org.kodtik.ide.http.HttpHost;
+import org.kodtik.ide.http.auth.AuthScheme;
+import org.kodtik.ide.http.conn.HttpClientConnectionManager;
 import org.eclipse.aether.RepositorySystemSession;
 import org.eclipse.aether.repository.RemoteRepository;
 

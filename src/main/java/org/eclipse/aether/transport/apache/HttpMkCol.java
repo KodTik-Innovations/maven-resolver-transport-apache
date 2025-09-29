@@ -20,7 +20,7 @@ package org.eclipse.aether.transport.apache;
 
 import java.net.URI;
 
-import org.apache.http.client.methods.HttpRequestBase;
+import org.kodtik.ide.http.client.methods.HttpRequestBase;
 
 /**
  * WebDAV MKCOL request to create parent directories.

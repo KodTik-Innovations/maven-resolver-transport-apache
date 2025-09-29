@@ -21,11 +21,11 @@ package org.eclipse.aether.transport.apache;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
-import org.apache.http.Header;
-import org.apache.http.HttpHeaders;
-import org.apache.http.client.HttpResponseException;
-import org.apache.http.client.methods.CloseableHttpResponse;
-import org.apache.http.util.EntityUtils;
+import org.kodtik.ide.http.Header;
+import org.kodtik.ide.http.HttpHeaders;
+import org.kodtik.ide.http.client.HttpResponseException;
+import org.kodtik.ide.http.client.methods.CloseableHttpResponse;
+import org.kodtik.ide.http.util.EntityUtils;
 import org.eclipse.aether.spi.connector.transport.http.RFC9457.RFC9457Reporter;
 
 public class ApacheRFC9457Reporter extends RFC9457Reporter<CloseableHttpResponse, HttpResponseException> {

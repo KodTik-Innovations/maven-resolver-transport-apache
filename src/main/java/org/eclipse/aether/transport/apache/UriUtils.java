@@ -23,7 +23,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.http.client.utils.URIUtils;
+import org.kodtik.ide.http.client.utils.URIUtils;
 
 /**
  * Helps to deal with URIs.

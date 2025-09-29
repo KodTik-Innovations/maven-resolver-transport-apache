@@ -21,9 +21,9 @@ package org.eclipse.aether.transport.apache;
 import java.util.HashMap;
 import java.util.Map;
 
-import org.apache.http.HttpHost;
-import org.apache.http.auth.AuthScheme;
-import org.apache.http.client.AuthCache;
+import org.kodtik.ide.http.HttpHost;
+import org.kodtik.ide.http.auth.AuthScheme;
+import org.kodtik.ide.http.client.AuthCache;
 
 /**
  * Auth scheme cache that upon clearing releases all cached schemes into a pool for future reuse by other requests,

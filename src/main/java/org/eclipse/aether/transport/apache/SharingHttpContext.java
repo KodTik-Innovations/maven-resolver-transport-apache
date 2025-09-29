@@ -20,7 +20,7 @@ package org.eclipse.aether.transport.apache;
 
 import java.io.Closeable;
 
-import org.apache.http.client.protocol.HttpClientContext;
+import org.kodtik.ide.http.client.protocol.HttpClientContext;
 
 /**
  * HTTP context that shares certain attributes among requests to optimize the communication with the server.

@@ -18,10 +18,10 @@
  */
 package org.eclipse.aether.transport.apache;
 
-import org.apache.http.HttpHost;
-import org.apache.http.auth.AuthScope;
-import org.apache.http.auth.Credentials;
-import org.apache.http.client.CredentialsProvider;
+import org.kodtik.ide.http.HttpHost;
+import org.kodtik.ide.http.auth.AuthScope;
+import org.kodtik.ide.http.auth.Credentials;
+import org.kodtik.ide.http.client.CredentialsProvider;
 
 /**
  * Credentials provider that helps to isolate server from proxy credentials. Apache HttpClient uses a single provider
