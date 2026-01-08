@@ -81,7 +81,7 @@ dependencies {
 publishing {
     publications {
         shadow(MavenPublication) { publication ->            
-            groupId = 'org.kodtik.ide'
+            groupId = 'org.kodtik.innovations'
             artifactId = 'maven-resolver-transport-apache'
             version = '2.0.11-beta' 
          
